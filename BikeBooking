@@ -1,0 +1,6 @@
+trigger BikeBooking on Bike_Bookings__c (After insert,after update) {
+     if(trigger.isAfter && ( trigger.isInsert || trigger.isupdate))
+    {
+    BikeBookingHandler.sendEmailNotification(trigger.new);
+        }
+}
